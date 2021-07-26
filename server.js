@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // dbCon.connect();
 // home page
+
 app.get('/', (req, res) => {
     return res.send({ error: false, message: 'EK : Welcom to RESTFul APIs By NodeJS.' });
 });
