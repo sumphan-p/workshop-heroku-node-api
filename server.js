@@ -40,9 +40,9 @@ app.get('/api/v1/users', (req, res) => {
         } else {
             message = 'Successfully get all users.';
         }
-        return res.send({ error: false, data: results, message: message });
+        // return res.send({ error: false, data: results, message: message });
     })
-    // return res.send({ error: false, message: 'ok' })
+    return res.send({ error: false, message: 'ok' })
 });
 
 // add new user
