@@ -27,6 +27,7 @@ app.get('/api/v1/users', (req, res) => {
         if (error) throw error;
         let message = '';
         if (results === undefind || results.length == 0) {
+            
             message = ' User table is Empty.';
         } else {
             message = 'Successfully get all users.';
