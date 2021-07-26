@@ -15,7 +15,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     database: 'nodejs_api'
 // });
 
-// dbCon.connect();
+const dbCon = mysql.createConnection({
+    host: 'us-cdbr-east-04.cleardb.com',
+    user: 'bdd4b22944e985',
+    password: '91721044',
+    database: 'heroku_329331faee4b757'
+});
+
+dbCon.connect();
 // home page
 
 app.get('/', (req, res) => {
@@ -23,20 +30,20 @@ app.get('/', (req, res) => {
 });
 
 // get all users
-// app.get('/api/v1/users', (req, res) => {
-//     dbCon.query('SELECT * FROM users', (error, results, fields) => {
-//         if (error) throw error;
-//         let message = '';
-//         if (results === undefind || results.length == 0) {
+app.get('/api/v1/users', (req, res) => {
+    dbCon.query('SELECT * FROM users', (error, results, fields) => {
+        if (error) throw error;
+        let message = '';
+        if (results === undefind || results.length == 0) {
 
-//             message = ' User table is Empty.';
-//         } else {
-//             message = 'Successfully get all users.';
-//         }
-//         return res.send({ error: false, data: results, message: message });
-//     })
-//     // return res.send({ error: false, message: 'ok' })
-// })
+            message = ' User table is Empty.';
+        } else {
+            message = 'Successfully get all users.';
+        }
+        return res.send({ error: false, data: results, message: message });
+    })
+    // return res.send({ error: false, message: 'ok' })
+});
 
 // add new user
 // app.post('/api/v1/user', (req, res) => {
